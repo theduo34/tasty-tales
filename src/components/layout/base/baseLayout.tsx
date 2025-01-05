@@ -21,7 +21,7 @@ const BaseLayout = ({ children }: {
             position="sticky"
             sx={{
               background: mode === "dark" ? background.paper : background.default,
-              zIndex: 1300, color: text.primary,
+              zIndex: 1200, color: text.primary, width: "100%"
             }}
             enableColorOnDark
           >

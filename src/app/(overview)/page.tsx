@@ -1,10 +1,11 @@
 import Home from '@/components/shared/common/home';
+import withBaseLayout from "@/components/layout/hoc/withBaseLayout";
 
 const HomePage = () => {
   return(
-    <main>
-      <Home/>
-    </main>
+   <div>
+     <Home/>
+   </div>
   )
- }
- export default HomePage;
+}
+export default withBaseLayout(HomePage);

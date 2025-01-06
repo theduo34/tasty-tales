@@ -3,6 +3,7 @@ import SearchInput from "@/components/shared/ui/search-input";
 import {DrawerMenu} from "@/components/shared/ui/drawer";
 import SavedRecipe from "@/components/user/saved-recipte/saved-recipe";
 import ProfileMenuPaper from "@/components/shared/ui/menu-paper";
+import NavLinks from "@/components/layout/navbar/nav-links";
 
 const TopNavbar = () => {
   return(
@@ -38,11 +39,8 @@ const TopNavbar = () => {
         </div>
 
         {/*service section*/}
-        <div className={"hidden md:flex flex-row items-center gap-6 font-semibold capitalize"}>
-          <p>what to cook</p>
-          <p>Recipe</p>
-          <p>Ingredient</p>
-          <p>Occasions</p>
+        <div className={"hidden md:flex"}>
+          <NavLinks/>
         </div>
       </div>
     </>

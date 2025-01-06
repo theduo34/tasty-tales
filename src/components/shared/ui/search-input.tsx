@@ -14,7 +14,6 @@ const SearchInput = ({placeholder, onChange}: {
         <OutlinedInput
           id="search-input"
           fullWidth
-          autoFocus
           placeholder={placeholder}
           onChange={() => onChange}
           startAdornment={

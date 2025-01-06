@@ -2,7 +2,10 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Tasty Tales',
+  title: {
+    template: '%s | Tasty Tales',
+    default: 'Tasty Tales',
+  },
   description: 'Every Recipe Has a Story',
 };
 

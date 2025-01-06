@@ -1,5 +1,9 @@
 import withBaseLayout from "@/components/layout/hoc/withBaseLayout";
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "Occasions"
+}
 const Occasions = () => {
   return(
     <div className="flex items-center justify-center min-h-screen">

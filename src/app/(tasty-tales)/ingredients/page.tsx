@@ -1,4 +1,9 @@
 import withBaseLayout from "@/components/layout/hoc/withBaseLayout";
+import {Metadata} from "next";
+
+export const metadata: Metadata = {
+  title: "Ingredients",
+}
 
 const Ingredients = () => {
   return(

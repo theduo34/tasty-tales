@@ -16,6 +16,7 @@ const SearchInput = ({placeholder, onChange}: {
           fullWidth
           placeholder={placeholder}
           onChange={() => onChange}
+          className={"caret-tasty-primary-400"}
           startAdornment={
             <InputAdornment position="start">
               <IconButton>
@@ -34,7 +35,7 @@ const SearchInput = ({placeholder, onChange}: {
               borderColor: '#999',
             },
             '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-              borderColor: '#1976d2',
+              borderColor: '#727070',
             },
           }}
         />

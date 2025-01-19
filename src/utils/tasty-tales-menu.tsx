@@ -1,28 +1,75 @@
-interface TastyTalesDataInterface {
+import React from "react";
+import MenuBookIcon from "@mui/icons-material/MenuBook";
+import Settings from "@mui/icons-material/Settings";
+import NotificationsIcon from "@mui/icons-material/Notifications";
+import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
+import Logout from "@mui/icons-material/Logout";
+import SoupKitchenIcon from "@mui/icons-material/SoupKitchen";
+import RestaurantMenuIcon from "@mui/icons-material/RestaurantMenu";
+import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
+import EventIcon from "@mui/icons-material/Event";
+
+
+interface TastyTalesMenuInterface {
   key: string,
-  name: string,
+  label: string,
+  icon?: React.ReactNode,
   href: string
 }
-export const tastyTalesData: TastyTalesDataInterface[] = [
+export const tastyTalesMenu: TastyTalesMenuInterface[] = [
   {
     key: "whatToCook",
-    name: "What To Cook",
+    label: "What To Cook",
+    icon: <SoupKitchenIcon />,
     href: "/what-to-cook"
   },
   {
     key: "recipes",
-    name: "Recipes",
+    label: "Recipes",
+    icon: <RestaurantMenuIcon />,
     href: "/recipes"
   },
   {
     key: "ingredients",
-    name: "Ingredients",
+    label: "Ingredients",
+    icon: <ShoppingBasketIcon />,
     href: "/ingredients"
   },
   {
     key: "occasions",
-    name: "Occasions",
+    label: "Occasions",
+    icon: <EventIcon />,
     href: "/occasions"
+  },
+  {
+    key: "myRecipes",
+    label: "My Recipes",
+    icon: <MenuBookIcon/>,
+    href: '/my-recipes'
+  },
+  {
+    key: "accountSettings",
+    label: "Account Settings",
+    icon: <Settings/>,
+    href: '/account-settings'
+  },
+  {
+    key: "notifications",
+    label: "Notifications",
+    icon: <NotificationsIcon/>,
+    href: 'notifications'
+  },
+  {
+    key: "helpCenter",
+    label: "Help Center",
+    icon: <HelpOutlineIcon/>,
+    href: '/help-center'
+  },
+  {
+    key: "logout",
+    label: "Logout",
+    icon: <Logout/>,
+    href: ''
   }
 
 ]

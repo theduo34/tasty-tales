@@ -8,19 +8,10 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
-import Settings from '@mui/icons-material/Settings';
-import Logout from '@mui/icons-material/Logout';
 import React from "react";
-import MenuBookIcon from '@mui/icons-material/MenuBook';
-import NotificationsIcon from '@mui/icons-material/Notifications';
-import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
+import Link from 'next/link';
+import {tastyTalesMenu} from '@/utils/tasty-tales-menu';
 
-interface ProfileMenuListInterface {
-  key: string,
-  label: string,
-  icon: React.ReactNode,
-  onClick: () => void
-}
 const ProfileMenuPaper = () => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
@@ -32,38 +23,6 @@ const ProfileMenuPaper = () => {
     setAnchorEl(null);
   };
 
-  const profileMenu: ProfileMenuListInterface [] = [
-    {
-      key: "myRecipes",
-      label: "My Recipes",
-      icon: <MenuBookIcon/>,
-      onClick: handleClose
-    },
-    {
-      key: "accountSettings",
-      label: "Account Settings",
-      icon: <Settings/>,
-      onClick: handleClose
-    },
-    {
-      key: "notifications",
-      label: "Notifications",
-      icon: <NotificationsIcon/>,
-      onClick: handleClose
-    },
-    {
-      key: "helpCenter",
-      label: "Help Center",
-      icon: <HelpOutlineIcon/>,
-      onClick: handleClose
-    },
-    {
-      key: "logout",
-      label: "Logout",
-      icon: <Logout/>,
-      onClick: handleClose
-    }
-  ]
 
   return (
     <>
@@ -119,18 +78,18 @@ const ProfileMenuPaper = () => {
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
         {
-          profileMenu.map((menu, index) => (
-            <Box  key={ menu.key } >
-              <MenuItem onClick={ menu.onClick }>
+          tastyTalesMenu.slice(4,9).map((menu) => (
+            <Link  key={ menu.key }  href={menu.href}>
+              <MenuItem onClick={ handleClose }>
                 <ListItemIcon>
                   { menu.icon }
                 </ListItemIcon>
                 { menu.label }
               </MenuItem>
-              { (menu.key === 'accountSettings' || menu.key === 'notifications') &&
-                profileMenu[index + 1]?.key === 'helpCenter' && <Divider />
-              }
-            </Box>
+              {(menu.key === 'helpCenter' || menu.key === 'layout') && (
+                <Divider />
+              )}
+            </Link>
           ))
         }
       </Menu>

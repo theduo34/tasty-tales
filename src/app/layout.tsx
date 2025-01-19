@@ -1,35 +1,32 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import type { Metadata } from 'next';
+import './globals.css';
 
 export const metadata: Metadata = {
-  title: "Tasty Tales",
-  description: "Every Recipe Has a Story",
+  title: {
+    template: '%s | Tasty Tales',
+    default: 'Tasty Tales',
+  },
+  description: 'Every Recipe Has a Story',
 };
 
-const RootLayout =({
-  children,
-}: Readonly<{
+const RootLayout = ({ children }: Readonly<{
   children: React.ReactNode;
 }>) => {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
+    <head>
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" />
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      />
+    </head>
+    <body>
+    { children }
+    </body>
     </html>
   );
-}
+};
 export default RootLayout;
+

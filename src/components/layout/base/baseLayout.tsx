@@ -1,5 +1,21 @@
 'use client'
-
+/**
+ * BaseLayout Component
+ *
+ * The BaseLayout component is responsible for providing a consistent layout structure
+ * across the application, including a sticky header, main content area, and a responsive footer.
+ * It ensures a uniform appearance and behavior for all pages wrapped in this layout.
+ *
+ * This component used as the main layout for pages or views that require
+ * a standard header, content area, and footer. The layout adapts to both mobile and desktop views
+ * with different footer designs for mobile and desktop screens.
+ *
+ * Usage:
+ * - Wrap  page's content with the BaseLayout component to ensure consistent styling and layout.
+ *
+ * Props:
+ * - children (React.ReactNode): The main content of the page, which will be rendered inside the layout.
+ */
 import { AppBar, Box,  CssBaseline, Toolbar, Typography } from "@mui/material";
 import React from "react";
 import theme from "@/theme"
@@ -69,7 +85,7 @@ const BaseLayout = ({ children }: {
             }}
           >
             <Typography variant="body2" sx={{ padding: "16px" }}>
-              Tasty Tales ©{new Date().getFullYear()} Created by tHeDUo
+              Tasty Tales ©{new Date().getFullYear()} Powered by tHeDUo
             </Typography>
           </Box>
 

@@ -13,8 +13,10 @@ const TopNavbar = () => {
           {/*logo*/}
           <div>
             <Image
-              src={''}
+              src={'/Firecracker-beef-mince.webp'}
               alt={'logo'}
+              width={40}
+              height={10}
             />
           </div>
           {/*search bar*/}

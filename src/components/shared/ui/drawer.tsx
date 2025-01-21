@@ -5,7 +5,7 @@ import IconButton from "@mui/material/IconButton"
 import MenuIcon from "@mui/icons-material/Menu"
 import Drawer from "@mui/material/Drawer"
 import React from "react";
-import {tastyTalesMenu} from "@/utils/tasty-tales-menu";
+import {tastyTalesMenu} from "@/lib/tasty-tales-menu";
 import Link from "next/link";
 import MenuItem from "@mui/material/MenuItem";
 import ListItemIcon from "@mui/material/ListItemIcon";

@@ -1,9 +1,8 @@
 'use server';
 
 import { z } from 'zod';
-import {createUser, login} from '@/lib/auth';
-import AuthError  from 'next-auth';
-
+import { createUser, login } from '@/lib/auth';
+import  AuthError  from 'next-auth';
 
 const SignupSchema = z.object({
   email: z.string().email(),
@@ -27,12 +26,20 @@ export const signupAction = async (_preState: void | undefined, formData: FormDa
   }
   try {
     await createUser(email, password, fullName, confirmPassword, phoneNumber);
+    
+    return { success: true };
   } catch (error) {
-   if(error instanceof AuthError) {
-     return error;
-   }
+    console.error('Registration error:', error);
+    if (error instanceof AuthError) {
+      return { error: 'Authentication failed' };
+    }
+    if (error instanceof z.ZodError) {
+      return { error: 'Invalid input data' };
+    }
+    return { error: error instanceof Error ? error.message : 'An unexpected error occurred' };
   }
 };
+
 
 export async function loginAction(formData: FormData) {
   const email = formData.get('email') as string;

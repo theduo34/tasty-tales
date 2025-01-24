@@ -17,5 +17,5 @@ const FrameLayout = ({children}: {
       { children }
     </div>
   )
-}
+} 
 export default FrameLayout

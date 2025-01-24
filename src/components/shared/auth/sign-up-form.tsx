@@ -2,12 +2,12 @@
 
 import Link from "next/link";
 import Image from "next/image"
-import {useActionState} from "react";
+import {useFormState} from "react-dom";
 import {signupAction} from "@/lib/action";
 
 const SignUpForm = () => {
-  const [errorMessage, formAction] = useActionState( signupAction, undefined)
-  console.log(errorMessage)
+  const [state, formAction] = useFormState(signupAction, undefined)
+  console.log(state)
   return (
     <form
       action = {formAction}
@@ -15,7 +15,7 @@ const SignUpForm = () => {
     >
       <div className="flex items-center justify-center font-semibold leading-normal ">
         <Image
-          src=".public/next.svg"
+          src="/logo.png"
           alt="Logo"
           width="350"
           height="20"
@@ -56,8 +56,8 @@ const SignUpForm = () => {
           <input
             id="confirmPassword"
             className="py-1 px-2 border border-neutral-300 rounded-md"
-            type={"password"}
-            name={"confirmPassword"}
+            type="password"
+            name="confirmPassword"
             required={true}
             placeholder="Confirm Password"
           />
@@ -66,8 +66,8 @@ const SignUpForm = () => {
           <input
             id="phoneNumber"
             className="py-1 px-2 border border-neutral-300 rounded-md"
-            type={"number"}
-            name={"phoneNumber"}
+            type="tel"
+            name="phoneNumber"
             required={true}
             placeholder="Phone Number"
           />

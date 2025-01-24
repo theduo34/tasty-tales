@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Rating from '@mui/material/Rating';
 import {FavoriteIconStarred} from "@/components/shared/ui/buttons";
-import {WhatToCookInterface} from "@/utils/faker.data";
+import {WhatToCookInterface} from "@/lib/faker.data";
 
 
 export const WhatToCookCard = (props:  WhatToCookInterface) => {
@@ -21,10 +21,10 @@ export const WhatToCookCard = (props:  WhatToCookInterface) => {
   return(
     <div
       key={props.recipeId}
-      className={"flex w-full flex-row md:flex-col items-center justify-between rounded-md gap-4 md:gap-0 shadow-md md:shadow-md"}
+      className={"flex w-full flex-col items-center justify-between rounded-md gap-4 md:gap-0 shadow-md md:shadow-md"}
     >
      <div
-       className={"flex w-[200px] md:w-full h-[100px] md:h-[270px] rounded-md"}
+       className={"flex w-full h-[300px] rounded-md"}
      >
        <Image
          width={100}

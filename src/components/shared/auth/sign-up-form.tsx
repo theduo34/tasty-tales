@@ -81,7 +81,7 @@ const SignUpForm = () => {
         </div>
         <div
           className={"flex w-full mt-12 py-1 font-semibold items-center justify-center border border-neutral-400 shadow-sm rounded-xl  hover:shadow-md cursor-pointer"}>
-          <Link href={'/auth/login'}> Already have an account </Link>
+          <Link href={'login'}> Already have an account </Link>
         </div>
       </div>
     </form>

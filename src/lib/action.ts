@@ -4,15 +4,39 @@ import { z } from 'zod';
 import { createUser, login } from '@/lib/auth';
 import  AuthError  from 'next-auth';
 
+export type SignUpState = {
+  errors?: {
+    email?: string[];
+    fullName?: string[];
+    password?: string;
+    confirmPassword?: string;
+    phoneNumber?: string;
+  };
+  message?: string | null;
+};
+
+export type SignInState = {
+  errors?: {
+    email?: string;
+    password?: string;
+  }
+  message?: string | null;
+}
+
+
 const SignupSchema = z.object({
-  email: z.string().email(),
-  password: z.string().min(6),
-  confirmPassword: z.string().min(6),
-  fullName: z.string(),
+  email:
+    z.string({required_error: 'Email is required', invalid_type_error: 'Invalid email address'}).email(),
+  password:
+    z.string({required_error: 'Password is required'}).min(6),
+  confirmPassword:
+    z.string({required_error: 'Confirm password is required'}).min(6),
+  fullName:
+    z.string({required_error: 'Full name is required!'}).min(6),
   phoneNumber: z.string(),
 });
 
-export const signupAction = async (_preState: void | undefined, formData: FormData) => {
+export const signupAction = async (_preState: SignUpState, formData: FormData) => {
   const email = formData.get('email') as string;
   const password = formData.get('password') as string;
   const confirmPassword = formData.get('confirmPassword') as string;
@@ -26,7 +50,7 @@ export const signupAction = async (_preState: void | undefined, formData: FormDa
   }
   try {
     await createUser(email, password, fullName, confirmPassword, phoneNumber);
-    
+
     return { success: true };
   } catch (error) {
     console.error('Registration error:', error);
@@ -41,7 +65,7 @@ export const signupAction = async (_preState: void | undefined, formData: FormDa
 };
 
 
-export async function loginAction(formData: FormData) {
+export async function loginAction(_prevState: SignInState, formData: FormData) {
   const email = formData.get('email') as string;
   const password = formData.get('password') as string;
 

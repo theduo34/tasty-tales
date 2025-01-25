@@ -2,11 +2,11 @@
 
 import Link from "next/link";
 import Image from "next/image"
-import {useFormState} from "react-dom";
 import {signupAction} from "@/lib/action";
+import {useActionState} from "react";
 
 const SignUpForm = () => {
-  const [state, formAction] = useFormState(signupAction, undefined)
+  const [state, formAction] = useActionState(signupAction, undefined)
   console.log(state)
   return (
     <form

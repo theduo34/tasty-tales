@@ -1,6 +1,6 @@
 'use client';
 
-import { tastyTalesMenu } from "@/utils/tasty-tales-menu";
+import { tastyTalesMenu } from "@/lib/tasty-tales-menu";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 

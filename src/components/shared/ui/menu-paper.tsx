@@ -10,7 +10,7 @@ import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import React from "react";
 import Link from 'next/link';
-import {tastyTalesMenu} from '@/utils/tasty-tales-menu';
+import {tastyTalesMenu} from '@/lib/tasty-tales-menu';
 
 const ProfileMenuPaper = () => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);

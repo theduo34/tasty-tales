@@ -2,7 +2,7 @@ import withBaseLayout from "@/components/layout/hoc/withBaseLayout";
 import {Metadata} from "next";
 import {WhatToCookCard} from "@/components/shared/ui/tasty-tales-cards";
 import FrameLayout from "@/components/layout/base/frameLayout";
-import {whatToCook} from "@/utils/faker.data";
+import {whatToCook} from "@/lib/faker.data";
 
 /**
  * WhatToCookPage Component

@@ -8,9 +8,14 @@ import InputAdornment from '@mui/material/InputAdornment';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import React, {useState} from "react";
-import {FormControl, FormHelperText} from "@mui/material";
+import {FormControl} from "@mui/material";
+import { useActionState} from "react";
+import { loginAction} from "@/lib/action";
+
 
 const LoginForm = () => {
+  const [state, formAction, isPending] = useActionState(loginAction, undefined)
+  console.log(state, isPending);
 
   const [showPassword, setShowPassword] = useState<boolean>(false);
 
@@ -26,7 +31,8 @@ const LoginForm = () => {
 
   return (
     <form
-      className={"w-full items-center space-y-4 space-x-0 py-12"}
+      action={formAction}
+      className={"w-full items-center space-x-0 py-12"}
     >
       <div className="flex items-center justify-center font-semibold leading-normal ">
         <Image
@@ -36,8 +42,12 @@ const LoginForm = () => {
           height="20"
         />
       </div>
+      <div className="items-center leading-normal">
+        <h3 className={"font-semibold text-md md:text-lg"}>Login to continue.</h3>
+        <p className={"text-sm"}>Provide your email and password to login</p>
+      </div>
       <div className="flex w-full flex-col items-center justify-center">
-        <div className="flex w-full mt-4">
+        <div className="flex w-full mt-6">
           <FormControl className="flex w-full">
             <TextField
               id="email"
@@ -59,10 +69,10 @@ const LoginForm = () => {
                 },
               }}
             />
-            <FormHelperText>Email is required</FormHelperText>
+            {/*<FormHelperText>Email is required</FormHelperText>*/}
           </FormControl>
         </div>
-        <div className={"flex flex-col w-full mt-4"}>
+        <div className={"flex flex-col w-full mt-6"}>
           <FormControl className={"flex w-full"}>
             <TextField
               id="password"
@@ -104,11 +114,13 @@ const LoginForm = () => {
                 },
               }}
             />
-            <FormHelperText className={"flex text-start justify-start"}>Password is required</FormHelperText>
+            {/*<FormHelperText>*/}
+            {/*  Password is required*/}
+            {/*</FormHelperText>*/}
           </FormControl>
         </div>
         <div
-          className={"flex w-full mt-8 text-white font-semibold items-center justify-center bg-tasty-primary-400 hover:bg-blue-500 shadow-md rounded-xl"}
+          className={"flex w-full mt-6 text-white font-semibold items-center justify-center bg-tasty-primary-400 hover:bg-blue-500 shadow-md rounded-xl"}
         >
           <button
             className={"py-1"}

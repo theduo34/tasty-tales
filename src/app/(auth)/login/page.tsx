@@ -1,4 +1,9 @@
 import LoginForm from "@/components/shared/auth/login-form";
+import { Metadata} from "next";
+
+export const metadata: Metadata = {
+  title: "Login"
+}
 
 const LoginPage = () => {
   return (
